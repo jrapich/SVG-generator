@@ -74,3 +74,12 @@ function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
 //once all prompts fulfilled, generate shape into /generated/
     //call the relevant imported class from /lib/shapes.js
     //log to console "Generated logo.svg to /generated/"
+
+//initialize app
+(function init () {
+    let chars;
+    let nameOfFile;
+    const generate = generateShape(secondPrompt(questions.second));
+    firstPrompt(questions.first);
+    (chars) ? fs.writeFile() : console.log("ERROR: please enter 3 or more characters"); 
+})
