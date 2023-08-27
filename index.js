@@ -78,9 +78,9 @@ function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
 //initialize app
 (function init () {
     let chars;
-    let nameOfFile;
+    let nameOfFile = "logo";
     let properties;
     firstPrompt(questions.first);
     (chars) ? secondPrompt(questions.second) : console.log("ERROR: please enter 3 or more characters");
-    
+    let shapeData = generateShape(properties);
 })
