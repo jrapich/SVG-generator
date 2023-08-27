@@ -1,4 +1,7 @@
-//inquierer.prompt code here
+const inquirer = require("inquirer");
+const fs = require("fs");
+
+//inquirer.prompt code here
 
 //inquirer must ask the following:
     //text to put inside the logo. text must be at least 3 characters
