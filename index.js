@@ -46,6 +46,18 @@ const questions = {
     //the shape's color
     //specify a name of the SVG file, if left blank, generate default of logo.svg
 
+function firstPrompt (question) {
+    inquirer.prompt(question).then((answers) => {
+        (answers.text.length >= 3) ? chars = answers.text : chars = false;
+        return chars
+    })
+}
+function secondPrompt (question) {
+    inquirer.prompt(question).then((answers) => {
+        
+    })
+}
+
 //once all prompts fulfilled, generate shape into /generated/
     //call the relevant imported class from /lib/shapes.js
     //log to console "Generated logo.svg to /generated/"
