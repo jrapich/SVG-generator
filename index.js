@@ -58,7 +58,7 @@ function secondPrompt (question) {
         if (fileName) {
             nameOfFile = fileName;
         }
-        const properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
+        properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
         return properties;
     })
 }
@@ -79,7 +79,8 @@ function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
 (function init () {
     let chars;
     let nameOfFile;
-    const generate = generateShape(secondPrompt(questions.second));
+    let properties;
     firstPrompt(questions.first);
-    (chars) ? fs.writeFile() : console.log("ERROR: please enter 3 or more characters"); 
+    (chars) ? secondPrompt(questions.second) : console.log("ERROR: please enter 3 or more characters");
+    
 })
