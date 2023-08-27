@@ -58,6 +58,9 @@ function secondPrompt (question) {
         if (fileName) {
             nameOfFile = fileName;
         }
+        if (shape === "Triangle") {
+            shape = "polygon";
+        }
         properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
         return properties;
     })
