@@ -55,7 +55,11 @@ function firstPrompt (question) {
 function secondPrompt (question) {
     inquirer.prompt(question).then((answers) => {
         const {textColor, shape, shapeColor, fileName} = answers;
-        const properties = new ShapeObj();
+        if (fileName) {
+            nameOfFile = fileName;
+        }
+        const properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
+        return properties;
     })
 }
 
