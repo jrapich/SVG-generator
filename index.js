@@ -54,8 +54,16 @@ function firstPrompt (question) {
 }
 function secondPrompt (question) {
     inquirer.prompt(question).then((answers) => {
-        
+        const properties = new ShapeObj();
     })
+}
+
+function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
+    this.text=chars;
+    this.textColor=textColor;
+    this.shape=shape;
+    this.shapeColor=shapeColor;
+    this.fileName=fileName;
 }
 
 //once all prompts fulfilled, generate shape into /generated/
