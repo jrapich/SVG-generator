@@ -1,6 +1,39 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+const questions = {
+    first: [
+        {
+            type:"input",
+            name:"text",
+            message:"Enter text to add to the logo. must be at least 3 characters:"
+        }
+    ],
+    second: [
+        {
+            type:"input",
+            name:"textColor",
+            message:"Enter the desired shape color. Color hex codes are also accepted:"
+        },
+        {
+            type:"list",
+            name:"shape",
+            message:"",
+            choices: ["Circle", "Square", "Triangle"]
+        },
+        {
+            type:"input",
+            name:"shapeColor",
+            message:"Enter the desired shape color. Color hex codes are also accepted:"
+        },
+        {
+            type:"input",
+            name:"fileName",
+            message:"Enter the desired .svg file name. If left blank, the default name of logo.svg will be used:"
+        }
+    ]
+}
+
 //inquirer.prompt code here
 
 //inquirer must ask the following:
