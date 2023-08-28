@@ -80,7 +80,7 @@ function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
     //log to console "Generated logo.svg to /generated/"
 
 //initialize app
-(function init () {
+function init () {
     let chars;
     let nameOfFile = "logo";
     let properties;
@@ -105,4 +105,6 @@ function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
             console.log(`Generated ${properties.fileName}.svg to /generated/`);
         })
     }
-})
+}
+
+init();
