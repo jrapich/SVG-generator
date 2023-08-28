@@ -86,5 +86,23 @@ function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
     let properties;
     firstPrompt(questions.first);
     (chars) ? secondPrompt(questions.second) : console.log("ERROR: please enter 3 or more characters");
-    let shapeData = generateShape(properties);
+    if (properties.shape === "Circle") {
+        const svgData = new generateShape.Circle(properties);
+        svgData = svgData.render(svgData.circle);
+        fs.writeFile(nameOfFile, svgData, () => {
+            console.log(`Generated ${properties.fileName}.svg to /generated/`);
+        })
+    } else if (properties.shape === "Square") {
+        const svgData = new generateShape.Square(properties);
+        svgData = svgData.render(svgData.square);
+        fs.writeFile(nameOfFile, svgData, () => {
+            console.log(`Generated ${properties.fileName}.svg to /generated/`);
+        })
+    } else {
+        const svgData = new generateShape.Triangle(properties);
+        svgData = svgData.render(svgData.triangle);
+        fs.writeFile(nameOfFile, svgData, () => {
+            console.log(`Generated ${properties.fileName}.svg to /generated/`);
+        })
+    }
 })
