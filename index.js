@@ -80,19 +80,19 @@ function init () {
             if (properties.shape === "Circle") {
                 let svgData = new generateShape.Circle(properties);
                 svgData = svgData.render(svgData.circle);
-                fs.writeFile(`${nameOfFile}.svg`, svgData, () => {
+                fs.writeFile(`./generated/${nameOfFile}.svg`, svgData, () => {
                     console.log(`Generated ${properties.fileName}.svg to /generated/`);
                 })
             } else if (properties.shape === "Square") {
                 let svgData = new generateShape.Square(properties);
                 svgData = svgData.render(svgData.square);
-                fs.writeFile(`${nameOfFile}.svg`, svgData, () => {
+                fs.writeFile(`./generated/${nameOfFile}.svg`, svgData, () => {
                     console.log(`Generated ${properties.fileName}.svg to /generated/`);
                 })
             } else {
                 let svgData = new generateShape.Triangle(properties);
                 svgData = svgData.render(svgData.triangle);
-                fs.writeFile(`${nameOfFile}.svg`, svgData, () => {
+                fs.writeFile(`./generated/${nameOfFile}.svg`, svgData, () => {
                     console.log(`Generated ${properties.fileName}.svg to /generated/`);
                 })
             }
