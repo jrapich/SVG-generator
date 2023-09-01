@@ -15,12 +15,12 @@ const questions = {
         {
             type:"input",
             name:"textColor",
-            message:"Enter the desired shape color. Color hex codes are also accepted:"
+            message:"Enter the desired text color. Color hex codes are also accepted:"
         },
         {
             type:"list",
             name:"shape",
-            message:"",
+            message:"Choose a shape to be generated:",
             choices: ["Circle", "Square", "Triangle"]
         },
         {
