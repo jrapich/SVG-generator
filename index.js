@@ -68,7 +68,7 @@ function init () {
         (answers.text.length >= 3) ? chars = answers.text : chars = false;
         (chars) ? 
         inquirer.prompt(questions.second).then((answers) => {
-            const {textColor, shape, shapeColor, fileName} = answers;
+            let {textColor, shape, shapeColor, fileName} = answers;
             if (fileName) {
                 nameOfFile = fileName;
             }
