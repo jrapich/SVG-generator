@@ -47,26 +47,6 @@ const questions = {
     //the shape's color
     //specify a name of the SVG file, if left blank, generate default of logo.svg
 
-function firstPrompt (question) {
-    inquirer.prompt(question).then((answers) => {
-        (answers.text.length >= 3) ? chars = answers.text : chars = false;
-        return chars
-    })
-}
-function secondPrompt (question) {
-    inquirer.prompt(question).then((answers) => {
-        const {textColor, shape, shapeColor, fileName} = answers;
-        if (fileName) {
-            nameOfFile = fileName;
-        }
-        if (shape === "Triangle") {
-            shape = "polygon";
-        }
-        properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
-        return properties;
-    })
-}
-
 function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
     this.text=chars;
     this.textColor=textColor;
@@ -84,27 +64,41 @@ function init () {
     let chars;
     let nameOfFile = "logo";
     let properties;
-    firstPrompt(questions.first);
-    (chars) ? secondPrompt(questions.second) : console.log("ERROR: please enter 3 or more characters");
-    if (properties.shape === "Circle") {
-        const svgData = new generateShape.Circle(properties);
-        svgData = svgData.render(svgData.circle);
-        fs.writeFile(nameOfFile, svgData, () => {
-            console.log(`Generated ${properties.fileName}.svg to /generated/`);
-        })
-    } else if (properties.shape === "Square") {
-        const svgData = new generateShape.Square(properties);
-        svgData = svgData.render(svgData.square);
-        fs.writeFile(nameOfFile, svgData, () => {
-            console.log(`Generated ${properties.fileName}.svg to /generated/`);
-        })
-    } else {
-        const svgData = new generateShape.Triangle(properties);
-        svgData = svgData.render(svgData.triangle);
-        fs.writeFile(nameOfFile, svgData, () => {
-            console.log(`Generated ${properties.fileName}.svg to /generated/`);
-        })
-    }
+    inquirer.prompt(questions.first).then((answers) => {
+        (answers.text.length >= 3) ? chars = answers.text : chars = false;
+        (chars) ? 
+        inquirer.prompt(questions.second).then((answers) => {
+            let {textColor, shape, shapeColor, fileName} = answers;
+            if (fileName) {
+                nameOfFile = fileName;
+            }
+            if (shape === "Triangle") {
+                shape = "polygon";
+            }
+            properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
+            
+            if (properties.shape === "Circle") {
+                let svgData = new generateShape.Circle(properties);
+                svgData = svgData.render(svgData.circle);
+                fs.writeFile(`./generated/${nameOfFile}.svg`, svgData, () => {
+                    console.log(`Generated ${properties.fileName}.svg to /generated/`);
+                })
+            } else if (properties.shape === "Square") {
+                let svgData = new generateShape.Square(properties);
+                svgData = svgData.render(svgData.square);
+                fs.writeFile(`./generated/${nameOfFile}.svg`, svgData, () => {
+                    console.log(`Generated ${properties.fileName}.svg to /generated/`);
+                })
+            } else {
+                let svgData = new generateShape.Triangle(properties);
+                svgData = svgData.render(svgData.triangle);
+                fs.writeFile(`./generated/${nameOfFile}.svg`, svgData, () => {
+                    console.log(`Generated ${properties.fileName}.svg to /generated/`);
+                })
+            }
+        }) 
+        : console.log("ERROR: please enter 3 or more characters");
+    })
 }
 
 init();
