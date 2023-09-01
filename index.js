@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateShape = require("./lib/shapes");
-const ShapeObj = require("./lib/shabeobj");
+const ShapeObj = require("./lib/shapeobj");
 
 const questions = {
     first: [
