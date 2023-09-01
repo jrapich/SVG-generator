@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateShape = require("./lib/shapes");
+const ShapeObj = require("./lib/shabeobj");
 
 const questions = {
     first: [
@@ -47,13 +48,7 @@ const questions = {
     //the shape's color
     //specify a name of the SVG file, if left blank, generate default of logo.svg
 
-function ShapeObj (chars, textColor, shape, shapeColor, fileName) {
-    this.text=chars;
-    this.textColor=textColor;
-    this.shape=shape;
-    this.shapeColor=shapeColor;
-    this.fileName=fileName;
-}
+
 
 //once all prompts fulfilled, generate shape into /generated/
     //call the relevant imported class from /lib/shapes.js
@@ -102,5 +97,3 @@ function init () {
 }
 
 init();
-
-module.exports = ShapeObj;
