@@ -21,19 +21,26 @@
 
   ## Installation
   Required to run: 
+
   `Node.js`
   
   NPM packages:
+
   `inquirer v8.2.4`
+
   `fs`
+
   Dev-dependency packages:
+
   `jest`
 
   The necessary packages are listed in package.json. with Node installed, simply run 
+
   `npm install`
 
   ## Usage
   To use the svg generator, clone the repository, navigate to the cloned directory and run
+
   `node index.js`
 
   You will then be presented with a series of questions. Type in an answer to the prompts to select from the shapes to be generated, the text generated on the shape, and the relative colors.
@@ -43,13 +50,19 @@
 
   Link to project repository: [https://github.com/jrapich/SVG-generator](https://github.com/jrapich/SVG-generator)
 
+  Link to video showcasing the installation and usage of this app: 
+  [https://drive.google.com/file/d/1pZENdSJxyuer4dub_3eqcQPrbYg3iGQN/view](https://drive.google.com/file/d/1pZENdSJxyuer4dub_3eqcQPrbYg3iGQN/view)
+
   ## Tests
   a simple test is written for jest in `/lib/shapes.test.js`
   first install jest with
+
   `npm install --only=dev `
 
   simple test can be run by running 
+
   `npm test` 
+
   jest will test the shape classes against themselves.
 
   ## Credits
@@ -57,14 +70,17 @@
 
   ## Contributing
   How to contribute:
+
   Please reach out to me at jeremysr@protonmail.com or make a pull request at [https://github.com/jrapich/SVG-generator](https://github.com/jrapich/SVG-generator)
 
   ## Questions?
   Any further questions, comments, or bug reports, can be sent to me at jeremysr@protonmail.com
+
   https://www.github.com/jrapich
 
   ## License
   This project protected under MIT License.
+  
   All rights reserved. See /LICENSE for more information.
 
   
