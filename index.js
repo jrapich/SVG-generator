@@ -1,8 +1,11 @@
+//import required npm packages
 const inquirer = require("inquirer");
 const fs = require("fs");
+//import necessary tools from the /lib/ folder
 const generateShape = require("./lib/shapes");
 const ShapeObj = require("./lib/shapeobj");
 
+//object containing 2 arrays that we will pass to inquirer for questions to ask the user
 const questions = {
     first: [
         {
@@ -36,23 +39,6 @@ const questions = {
     ]
 }
 
-//inquirer.prompt code here
-
-//inquirer must ask the following:
-    //text to put inside the logo. text must be at least 3 characters
-        //write logic to test if less than 3 characters
-    //text color
-        //must enter a color keyword or a hex color code
-    //shape, either circle, triangle, or square
-        //prompted in list form
-    //the shape's color
-    //specify a name of the SVG file, if left blank, generate default of logo.svg
-
-
-
-//once all prompts fulfilled, generate shape into /generated/
-    //call the relevant imported class from /lib/shapes.js
-    //log to console "Generated logo.svg to /generated/"
 
 //initialize app
 function init () {
@@ -61,6 +47,8 @@ function init () {
     let properties;
     inquirer.prompt(questions.first).then((answers) => {
         (answers.text.length >= 3) ? chars = answers.text : chars = false;
+
+        //if the user entered text 3 chars or longer, ask the next set of questions. otherwise, return an error
         (chars) ? 
         inquirer.prompt(questions.second).then((answers) => {
             let {textColor, shape, shapeColor, fileName} = answers;
@@ -70,8 +58,10 @@ function init () {
             if (shape === "Triangle") {
                 shape = "polygon";
             }
+            //this object contains all the parameters the user just passed, and we will use this for whatever shape necesssary to generate
             properties = new ShapeObj(chars, textColor, shape, shapeColor, nameOfFile);
             
+            //generate the logo with the user specified shape
             if (properties.shape === "Circle") {
                 let svgData = new generateShape.Circle(properties);
                 svgData = svgData.render(svgData.circle);
